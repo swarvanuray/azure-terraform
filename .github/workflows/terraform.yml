@@ -30,6 +30,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: Log in to Azure
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
 
@@ -43,7 +50,4 @@ jobs:
       run: terraform validate
 
     - name: Terraform Plan
-      # Verify that the plan works. This will fail if no Azure credentials are provided.
-      # We use continue-on-error for the initial setup.
       run: terraform plan -input=false
-      continue-on-error: true
