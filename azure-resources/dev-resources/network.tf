@@ -12,7 +12,13 @@ module "my_network" {
     # THIS IS THE CRITICAL CHANGE: Adding delegation
     "web-subnet" = { 
       address_prefixes = ["10.0.1.0/24"] 
-      delegation       = "Microsoft.Web/serverFarms"
+      delegation = {
+        name = "webappdelegation"
+        service_delegation = {
+          name    = "Microsoft.Web/serverFarms"
+          actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+        }
+      }
     }
     "db-subnet"  = { 
       address_prefixes = ["10.0.2.0/24"] 

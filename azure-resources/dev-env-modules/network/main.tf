@@ -19,10 +19,10 @@ resource "azurerm_subnet" "this" {
     for_each = each.value.delegation != null ? [1] : []
 
     content {
-      name = "delegation"
+      name = each.value.delegation.name
       service_delegation {
-        name    = each.value.delegation
-        actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+        name    = each.value.delegation.service_delegation.name
+        actions = each.value.delegation.service_delegation.actions
       }
     }
   }

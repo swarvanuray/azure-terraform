@@ -2,13 +2,25 @@ variable "subnets" {
   description = "Map of subnets to create with optional delegation"
   type        = map(object({
     address_prefixes = list(string)
-    delegation       = optional(string) # "Microsoft.Web/serverFarms" for Web Apps
+    delegation       = optional(object({
+      name = string
+      service_delegation = object({
+        name    = string
+        actions = list(string)
+      })
+    }))
   }))
   # Default example
   default = {
     "web-subnet" = { 
       address_prefixes = ["10.0.1.0/24"]
-      delegation       = "Microsoft.Web/serverFarms" 
+      delegation = {
+        name = "webappdelegation"
+        service_delegation = {
+          name    = "Microsoft.Web/serverFarms"
+          actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
+        }
+      }
     }
     "db-subnet"  = { 
       address_prefixes = ["10.0.2.0/24"]
