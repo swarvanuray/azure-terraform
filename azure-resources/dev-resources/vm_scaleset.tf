@@ -16,7 +16,7 @@ module "vm_scaleset" {
 
   # Use db-subnet from the network module
   create_networking = false
-  subnet_id = module.my_network.subnet_ids["db-subnet"]
+  subnet_id         = module.my_network.subnet_ids["db-subnet"]
 
   # Red Hat Enterprise Linux 9
   image_publisher = "RedHat"

@@ -1,0 +1,1078 @@
+﻿Acquiring state lock. This may take a few moments...
+data.azurerm_resource_group.vmss_rg: Reading...
+data.azurerm_resource_group.existing_rg: Reading...
+data.azurerm_resource_group.rg_net: Reading...
+data.azurerm_resource_group.vm_rg: Reading...
+module.my_keyvault.data.azurerm_client_config.current: Reading...
+module.my_keyvault.data.azurerm_client_config.current: Read complete after 0s [id=Y2xpZW50Q29uZmlncy9jbGllbnRJZD0wNGIwNzc5NS04ZGRiLTQ2MWEtYmJlZS0wMmY5ZTFiZjdiNDY7b2JqZWN0SWQ9Nzk5NDEyZGQtNWQ4Mi00NjFmLTljNTctNTE0ZGNjYTA1MDRkO3N1YnNjcmlwdGlvbklkPTc2NDQ0NGUyLTMxMTMtNDYxYy1iMmNhLTdiYjVkZjYwZmI0MTt0ZW5hbnRJZD01N2JhOGY4My02NjQzLTRjODMtOWFjYi1lN2Q1MTUyOTJjZTQ=]
+data.azurerm_resource_group.rg_net: Read complete after 0s [id=/subscriptions/764444e2-3113-461c-b2ca-7bb5df60fb41/resourceGroups/swarvanu]
+module.my_network.azurerm_virtual_network.this: Refreshing state... [id=/subscriptions/764444e2-3113-461c-b2ca-7bb5df60fb41/resourceGroups/swarvanu/providers/Microsoft.Network/virtualNetworks/swarvanu-vnet]
+data.azurerm_resource_group.vm_rg: Read complete after 0s [id=/subscriptions/764444e2-3113-461c-b2ca-7bb5df60fb41/resourceGroups/swarvanu]
+data.azurerm_resource_group.existing_rg: Read complete after 1s [id=/subscriptions/764444e2-3113-461c-b2ca-7bb5df60fb41/resourceGroups/swarvanu]
+data.azurerm_resource_group.vmss_rg: Read complete after 1s [id=/subscriptions/764444e2-3113-461c-b2ca-7bb5df60fb41/resourceGroups/swarvanu]
+module.my_network.azurerm_subnet.this["db-subnet"]: Refreshing state... [id=/subscriptions/764444e2-3113-461c-b2ca-7bb5df60fb41/resourceGroups/swarvanu/providers/Microsoft.Network/virtualNetworks/swarvanu-vnet/subnets/db-subnet]
+
+Note: Objects have changed outside of Terraform
+
+Terraform detected the following changes made outside of Terraform since the
+last "terraform apply" which may have affected this plan:
+
+  # module.my_network.azurerm_virtual_network.this has been deleted
+  - resource "azurerm_virtual_network" "this" {
+      - id                             = "/subscriptions/764444e2-3113-461c-b2ca-7bb5df60fb41/resourceGroups/swarvanu/providers/Microsoft.Network/virtualNetworks/swarvanu-vnet" -> null
+      - name                           = "swarvanu-vnet" -> null
+        tags                           = {}
+        # (10 unchanged attributes hidden)
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the
+relevant attributes using ignore_changes, the following plan may include
+actions to undo or respond to these changes.
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform planned the following actions, but then encountered a problem:
+
+  # module.auto_storage.azurerm_storage_account.this[0] will be created
+  + resource "azurerm_storage_account" "this" {
+      + access_tier                        = "Hot"
+      + account_kind                       = "StorageV2"
+      + account_replication_type           = "LRS"
+      + account_tier                       = "Standard"
+      + allow_nested_items_to_be_public    = true
+      + cross_tenant_replication_enabled   = false
+      + default_to_oauth_authentication    = false
+      + dns_endpoint_type                  = "Standard"
+      + https_traffic_only_enabled         = true
+      + id                                 = (known after apply)
+      + infrastructure_encryption_enabled  = false
+      + is_hns_enabled                     = false
+      + large_file_share_enabled           = (known after apply)
+      + local_user_enabled                 = true
+      + location                           = "eastus"
+      + min_tls_version                    = "TLS1_2"
+      + name                               = "swarvanu"
+      + nfsv3_enabled                      = false
+      + primary_access_key                 = (sensitive value)
+      + primary_blob_connection_string     = (sensitive value)
+      + primary_blob_endpoint              = (known after apply)
+      + primary_blob_host                  = (known after apply)
+      + primary_blob_internet_endpoint     = (known after apply)
+      + primary_blob_internet_host         = (known after apply)
+      + primary_blob_microsoft_endpoint    = (known after apply)
+      + primary_blob_microsoft_host        = (known after apply)
+      + primary_connection_string          = (sensitive value)
+      + primary_dfs_endpoint               = (known after apply)
+      + primary_dfs_host                   = (known after apply)
+      + primary_dfs_internet_endpoint      = (known after apply)
+      + primary_dfs_internet_host          = (known after apply)
+      + primary_dfs_microsoft_endpoint     = (known after apply)
+      + primary_dfs_microsoft_host         = (known after apply)
+      + primary_file_endpoint              = (known after apply)
+      + primary_file_host                  = (known after apply)
+      + primary_file_internet_endpoint     = (known after apply)
+      + primary_file_internet_host         = (known after apply)
+      + primary_file_microsoft_endpoint    = (known after apply)
+      + primary_file_microsoft_host        = (known after apply)
+      + primary_location                   = (known after apply)
+      + primary_queue_endpoint             = (known after apply)
+      + primary_queue_host                 = (known after apply)
+      + primary_queue_microsoft_endpoint   = (known after apply)
+      + primary_queue_microsoft_host       = (known after apply)
+      + primary_table_endpoint             = (known after apply)
+      + primary_table_host                 = (known after apply)
+      + primary_table_microsoft_endpoint   = (known after apply)
+      + primary_table_microsoft_host       = (known after apply)
+      + primary_web_endpoint               = (known after apply)
+      + primary_web_host                   = (known after apply)
+      + primary_web_internet_endpoint      = (known after apply)
+      + primary_web_internet_host          = (known after apply)
+      + primary_web_microsoft_endpoint     = (known after apply)
+      + primary_web_microsoft_host         = (known after apply)
+      + public_network_access_enabled      = true
+      + queue_encryption_key_type          = "Service"
+      + resource_group_name                = "swarvanu"
+      + secondary_access_key               = (sensitive value)
+      + secondary_blob_connection_string   = (sensitive value)
+      + secondary_blob_endpoint            = (known after apply)
+      + secondary_blob_host                = (known after apply)
+      + secondary_blob_internet_endpoint   = (known after apply)
+      + secondary_blob_internet_host       = (known after apply)
+      + secondary_blob_microsoft_endpoint  = (known after apply)
+      + secondary_blob_microsoft_host      = (known after apply)
+      + secondary_connection_string        = (sensitive value)
+      + secondary_dfs_endpoint             = (known after apply)
+      + secondary_dfs_host                 = (known after apply)
+      + secondary_dfs_internet_endpoint    = (known after apply)
+      + secondary_dfs_internet_host        = (known after apply)
+      + secondary_dfs_microsoft_endpoint   = (known after apply)
+      + secondary_dfs_microsoft_host       = (known after apply)
+      + secondary_file_endpoint            = (known after apply)
+      + secondary_file_host                = (known after apply)
+      + secondary_file_internet_endpoint   = (known after apply)
+      + secondary_file_internet_host       = (known after apply)
+      + secondary_file_microsoft_endpoint  = (known after apply)
+      + secondary_file_microsoft_host      = (known after apply)
+      + secondary_location                 = (known after apply)
+      + secondary_queue_endpoint           = (known after apply)
+      + secondary_queue_host               = (known after apply)
+      + secondary_queue_microsoft_endpoint = (known after apply)
+      + secondary_queue_microsoft_host     = (known after apply)
+      + secondary_table_endpoint           = (known after apply)
+      + secondary_table_host               = (known after apply)
+      + secondary_table_microsoft_endpoint = (known after apply)
+      + secondary_table_microsoft_host     = (known after apply)
+      + secondary_web_endpoint             = (known after apply)
+      + secondary_web_host                 = (known after apply)
+      + secondary_web_internet_endpoint    = (known after apply)
+      + secondary_web_internet_host        = (known after apply)
+      + secondary_web_microsoft_endpoint   = (known after apply)
+      + secondary_web_microsoft_host       = (known after apply)
+      + sftp_enabled                       = false
+      + shared_access_key_enabled          = true
+      + table_encryption_key_type          = "Service"
+      + tags                               = {
+          + "CreatedBy" = "Terraform"
+          + "Module"    = "AdvancedStorage"
+        }
+
+      + blob_properties {
+          + change_feed_enabled      = false
+          + default_service_version  = (known after apply)
+          + last_access_time_enabled = false
+          + versioning_enabled       = false
+
+          + delete_retention_policy {
+              + days                     = 7
+              + permanent_delete_enabled = false
+            }
+        }
+
+      + network_rules (known after apply)
+
+      + queue_properties (known after apply)
+
+      + routing (known after apply)
+
+      + share_properties (known after apply)
+
+      + static_website (known after apply)
+    }
+
+  # module.data_collection_rule.azurerm_monitor_data_collection_rule.this[0] will be created
+  + resource "azurerm_monitor_data_collection_rule" "this" {
+      + description         = "Data Collection Rule for VMs and VMSS - sends logs to Log Analytics Workspace"
+      + id                  = (known after apply)
+      + immutable_id        = (known after apply)
+      + kind                = "Linux"
+      + location            = "eastus"
+      + name                = "swarvanu-dcr"
+      + resource_group_name = "swarvanu"
+      + tags                = {
+          + "CreatedBy" = "Terraform"
+          + "Module"    = "DataCollectionRule"
+        }
+
+      + data_flow {
+          + destinations = [
+              + "log-analytics-destination",
+            ]
+          + streams      = [
+              + "Microsoft-Syslog",
+            ]
+        }
+      + data_flow {
+          + destinations = [
+              + "log-analytics-destination",
+            ]
+          + streams      = [
+              + "Microsoft-Perf",
+              + "Microsoft-InsightsMetrics",
+            ]
+        }
+
+      + data_sources {
+          + performance_counter {
+              + counter_specifiers            = [
+                  + "Processor(*)\\% Processor Time",
+                  + "Memory(*)\\% Used Memory",
+                  + "LogicalDisk(*)\\% Free Space",
+                  + "Network(*)\\Total Bytes Transmitted",
+                  + "Network(*)\\Total Bytes Received",
+                ]
+              + name                          = "perf-counter-datasource"
+              + sampling_frequency_in_seconds = 60
+              + streams                       = [
+                  + "Microsoft-Perf",
+                  + "Microsoft-InsightsMetrics",
+                ]
+            }
+          + syslog {
+              + facility_names = [
+                  + "*",
+                ]
+              + log_levels     = [
+                  + "*",
+                ]
+              + name           = "syslog-datasource"
+              + streams        = [
+                  + "Microsoft-Syslog",
+                ]
+            }
+        }
+
+      + destinations {
+          + log_analytics {
+              + name                  = "log-analytics-destination"
+              + workspace_resource_id = (known after apply)
+            }
+        }
+    }
+
+  # module.data_collection_rule.azurerm_monitor_data_collection_rule_association.vm[0] will be created
+  + resource "azurerm_monitor_data_collection_rule_association" "vm" {
+      + data_collection_rule_id = (known after apply)
+      + description             = "Association between DCR and VM 0"
+      + id                      = (known after apply)
+      + name                    = "vm-dcr-assoc-0"
+      + target_resource_id      = (known after apply)
+    }
+
+  # module.data_collection_rule.azurerm_monitor_data_collection_rule_association.vm[1] will be created
+  + resource "azurerm_monitor_data_collection_rule_association" "vm" {
+      + data_collection_rule_id = (known after apply)
+      + description             = "Association between DCR and VM 1"
+      + id                      = (known after apply)
+      + name                    = "vm-dcr-assoc-1"
+      + target_resource_id      = (known after apply)
+    }
+
+  # module.log_analytics.azurerm_log_analytics_workspace.this[0] will be created
+  + resource "azurerm_log_analytics_workspace" "this" {
+      + allow_resource_only_permissions         = true
+      + cmk_for_query_forced                    = false
+      + daily_quota_gb                          = -1
+      + id                                      = (known after apply)
+      + immediate_data_purge_on_30_days_enabled = false
+      + internet_ingestion_enabled              = true
+      + internet_query_enabled                  = true
+      + local_authentication_disabled           = (known after apply)
+      + local_authentication_enabled            = true
+      + location                                = "eastus"
+      + name                                    = "swarvanu-log-analytics"
+      + primary_shared_key                      = (sensitive value)
+      + resource_group_name                     = "swarvanu"
+      + retention_in_days                       = 30
+      + secondary_shared_key                    = (sensitive value)
+      + sku                                     = "PerGB2018"
+      + tags                                    = {
+          + "CreatedBy" = "Terraform"
+          + "Module"    = "LogAnalyticsWorkspace"
+        }
+      + workspace_id                            = (known after apply)
+    }
+
+  # module.my_cosmos.azurerm_cosmosdb_account.this will be created
+  + resource "azurerm_cosmosdb_account" "this" {
+      + access_key_metadata_writes_enabled           = true
+      + analytical_storage_enabled                   = false
+      + automatic_failover_enabled                   = false
+      + burst_capacity_enabled                       = false
+      + create_mode                                  = (known after apply)
+      + default_identity_type                        = "FirstPartyIdentity"
+      + endpoint                                     = (known after apply)
+      + free_tier_enabled                            = false
+      + id                                           = (known after apply)
+      + is_virtual_network_filter_enabled            = false
+      + kind                                         = "GlobalDocumentDB"
+      + local_authentication_disabled                = false
+      + location                                     = "eastus"
+      + minimal_tls_version                          = "Tls12"
+      + mongo_server_version                         = (known after apply)
+      + multiple_write_locations_enabled             = false
+      + name                                         = "swarvanucosmos"
+      + network_acl_bypass_for_azure_services        = false
+      + offer_type                                   = "Standard"
+      + partition_merge_enabled                      = false
+      + primary_key                                  = (sensitive value)
+      + primary_mongodb_connection_string            = (sensitive value)
+      + primary_readonly_key                         = (sensitive value)
+      + primary_readonly_mongodb_connection_string   = (sensitive value)
+      + primary_readonly_sql_connection_string       = (sensitive value)
+      + primary_sql_connection_string                = (sensitive value)
+      + public_network_access_enabled                = true
+      + read_endpoints                               = (known after apply)
+      + resource_group_name                          = "swarvanu"
+      + secondary_key                                = (sensitive value)
+      + secondary_mongodb_connection_string          = (sensitive value)
+      + secondary_readonly_key                       = (sensitive value)
+      + secondary_readonly_mongodb_connection_string = (sensitive value)
+      + secondary_readonly_sql_connection_string     = (sensitive value)
+      + secondary_sql_connection_string              = (sensitive value)
+      + write_endpoints                              = (known after apply)
+
+      + analytical_storage (known after apply)
+
+      + backup (known after apply)
+
+      + capabilities (known after apply)
+
+      + capacity (known after apply)
+
+      + consistency_policy {
+          + consistency_level = "Session"
+        }
+
+      + geo_location {
+          + failover_priority = 0
+          + id                = (known after apply)
+          + location          = "eastus"
+          + zone_redundant    = false
+        }
+    }
+
+  # module.my_keyvault.azurerm_key_vault.this[0] will be created
+  + resource "azurerm_key_vault" "this" {
+      + access_policy                 = (known after apply)
+      + enable_rbac_authorization     = (known after apply)
+      + id                            = (known after apply)
+      + location                      = "eastus"
+      + name                          = "swarvanukeyvault"
+      + public_network_access_enabled = true
+      + purge_protection_enabled      = false
+      + rbac_authorization_enabled    = (known after apply)
+      + resource_group_name           = "swarvanu"
+      + sku_name                      = "standard"
+      + soft_delete_retention_days    = 7
+      + tags                          = {
+          + "CreatedBy" = "Terraform"
+          + "Module"    = "KeyVault"
+        }
+      + tenant_id                     = "57ba8f83-6643-4c83-9acb-e7d515292ce4"
+      + vault_uri                     = (known after apply)
+
+      + contact (known after apply)
+
+      + network_acls {
+          + bypass         = "AzureServices"
+          + default_action = "Allow"
+        }
+    }
+
+  # module.my_keyvault.azurerm_key_vault_access_policy.deployer[0] will be created
+  + resource "azurerm_key_vault_access_policy" "deployer" {
+      + id                 = (known after apply)
+      + key_permissions    = [
+          + "Get",
+          + "List",
+          + "Create",
+          + "Delete",
+          + "Recover",
+          + "Backup",
+          + "Restore",
+        ]
+      + key_vault_id       = (known after apply)
+      + object_id          = "799412dd-5d82-461f-9c57-514dcca0504d"
+      + secret_permissions = [
+          + "Get",
+          + "List",
+          + "Set",
+          + "Delete",
+          + "Recover",
+          + "Backup",
+          + "Restore",
+        ]
+      + tenant_id          = "57ba8f83-6643-4c83-9acb-e7d515292ce4"
+    }
+
+  # module.my_network.azurerm_subnet.this["db-subnet"] will be created
+  + resource "azurerm_subnet" "this" {
+      + address_prefixes                              = [
+          + "10.0.2.0/24",
+        ]
+      + default_outbound_access_enabled               = true
+      + id                                            = (known after apply)
+      + name                                          = "db-subnet"
+      + private_endpoint_network_policies             = "Disabled"
+      + private_link_service_network_policies_enabled = true
+      + resource_group_name                           = "swarvanu"
+      + virtual_network_name                          = "swarvanu-vnet"
+    }
+
+  # module.my_network.azurerm_subnet.this["web-subnet"] will be created
+  + resource "azurerm_subnet" "this" {
+      + address_prefixes                              = [
+          + "10.0.1.0/24",
+        ]
+      + default_outbound_access_enabled               = true
+      + id                                            = (known after apply)
+      + name                                          = "web-subnet"
+      + private_endpoint_network_policies             = "Disabled"
+      + private_link_service_network_policies_enabled = true
+      + resource_group_name                           = "swarvanu"
+      + virtual_network_name                          = "swarvanu-vnet"
+
+      + delegation {
+          + name = "webappdelegation"
+
+          + service_delegation {
+              + actions = [
+                  + "Microsoft.Network/virtualNetworks/subnets/action",
+                ]
+              + name    = "Microsoft.Web/serverFarms"
+            }
+        }
+    }
+
+  # module.my_network.azurerm_virtual_network.this will be created
+  + resource "azurerm_virtual_network" "this" {
+      + address_space                  = [
+          + "10.0.0.0/16",
+        ]
+      + dns_servers                    = (known after apply)
+      + guid                           = (known after apply)
+      + id                             = (known after apply)
+      + location                       = "eastus"
+      + name                           = "swarvanu-vnet"
+      + private_endpoint_vnet_policies = "Disabled"
+      + resource_group_name            = "swarvanu"
+      + subnet                         = (known after apply)
+    }
+
+  # module.vm_data_disks.azurerm_managed_disk.data_disk[0] will be created
+  + resource "azurerm_managed_disk" "data_disk" {
+      + create_option                     = "Empty"
+      + disk_iops_read_only               = (known after apply)
+      + disk_iops_read_write              = (known after apply)
+      + disk_mbps_read_only               = (known after apply)
+      + disk_mbps_read_write              = (known after apply)
+      + disk_size_gb                      = 64
+      + id                                = (known after apply)
+      + location                          = "eastus"
+      + logical_sector_size               = (known after apply)
+      + max_shares                        = (known after apply)
+      + name                              = "dev-vm-data-0-disk-0"
+      + network_access_policy             = "AllowAll"
+      + optimized_frequent_attach_enabled = false
+      + performance_plus_enabled          = false
+      + public_network_access_enabled     = true
+      + resource_group_name               = "swarvanu"
+      + source_uri                        = (known after apply)
+      + storage_account_type              = "Standard_LRS"
+      + tags                              = {
+          + "CreatedBy" = "Terraform"
+          + "DiskIndex" = "0"
+          + "Module"    = "ManagedDisk"
+          + "VM"        = "vm-0"
+        }
+      + tier                              = (known after apply)
+    }
+
+  # module.vm_data_disks.azurerm_managed_disk.data_disk[1] will be created
+  + resource "azurerm_managed_disk" "data_disk" {
+      + create_option                     = "Empty"
+      + disk_iops_read_only               = (known after apply)
+      + disk_iops_read_write              = (known after apply)
+      + disk_mbps_read_only               = (known after apply)
+      + disk_mbps_read_write              = (known after apply)
+      + disk_size_gb                      = 64
+      + id                                = (known after apply)
+      + location                          = "eastus"
+      + logical_sector_size               = (known after apply)
+      + max_shares                        = (known after apply)
+      + name                              = "dev-vm-logs-0-disk-1"
+      + network_access_policy             = "AllowAll"
+      + optimized_frequent_attach_enabled = false
+      + performance_plus_enabled          = false
+      + public_network_access_enabled     = true
+      + resource_group_name               = "swarvanu"
+      + source_uri                        = (known after apply)
+      + storage_account_type              = "Standard_LRS"
+      + tags                              = {
+          + "CreatedBy" = "Terraform"
+          + "DiskIndex" = "1"
+          + "Module"    = "ManagedDisk"
+          + "VM"        = "vm-0"
+        }
+      + tier                              = (known after apply)
+    }
+
+  # module.vm_data_disks.azurerm_managed_disk.data_disk[2] will be created
+  + resource "azurerm_managed_disk" "data_disk" {
+      + create_option                     = "Empty"
+      + disk_iops_read_only               = (known after apply)
+      + disk_iops_read_write              = (known after apply)
+      + disk_mbps_read_only               = (known after apply)
+      + disk_mbps_read_write              = (known after apply)
+      + disk_size_gb                      = 128
+      + id                                = (known after apply)
+      + location                          = "eastus"
+      + logical_sector_size               = (known after apply)
+      + max_shares                        = (known after apply)
+      + name                              = "dev-vm-backup-0-disk-2"
+      + network_access_policy             = "AllowAll"
+      + optimized_frequent_attach_enabled = false
+      + performance_plus_enabled          = false
+      + public_network_access_enabled     = true
+      + resource_group_name               = "swarvanu"
+      + source_uri                        = (known after apply)
+      + storage_account_type              = "Premium_LRS"
+      + tags                              = {
+          + "CreatedBy" = "Terraform"
+          + "DiskIndex" = "2"
+          + "Module"    = "ManagedDisk"
+          + "VM"        = "vm-0"
+        }
+      + tier                              = (known after apply)
+    }
+
+  # module.vm_data_disks.azurerm_managed_disk.data_disk[3] will be created
+  + resource "azurerm_managed_disk" "data_disk" {
+      + create_option                     = "Empty"
+      + disk_iops_read_only               = (known after apply)
+      + disk_iops_read_write              = (known after apply)
+      + disk_mbps_read_only               = (known after apply)
+      + disk_mbps_read_write              = (known after apply)
+      + disk_size_gb                      = 64
+      + id                                = (known after apply)
+      + location                          = "eastus"
+      + logical_sector_size               = (known after apply)
+      + max_shares                        = (known after apply)
+      + name                              = "dev-vm-data-1-disk-0"
+      + network_access_policy             = "AllowAll"
+      + optimized_frequent_attach_enabled = false
+      + performance_plus_enabled          = false
+      + public_network_access_enabled     = true
+      + resource_group_name               = "swarvanu"
+      + source_uri                        = (known after apply)
+      + storage_account_type              = "Standard_LRS"
+      + tags                              = {
+          + "CreatedBy" = "Terraform"
+          + "DiskIndex" = "0"
+          + "Module"    = "ManagedDisk"
+          + "VM"        = "vm-1"
+        }
+      + tier                              = (known after apply)
+    }
+
+  # module.vm_data_disks.azurerm_managed_disk.data_disk[4] will be created
+  + resource "azurerm_managed_disk" "data_disk" {
+      + create_option                     = "Empty"
+      + disk_iops_read_only               = (known after apply)
+      + disk_iops_read_write              = (known after apply)
+      + disk_mbps_read_only               = (known after apply)
+      + disk_mbps_read_write              = (known after apply)
+      + disk_size_gb                      = 64
+      + id                                = (known after apply)
+      + location                          = "eastus"
+      + logical_sector_size               = (known after apply)
+      + max_shares                        = (known after apply)
+      + name                              = "dev-vm-logs-1-disk-1"
+      + network_access_policy             = "AllowAll"
+      + optimized_frequent_attach_enabled = false
+      + performance_plus_enabled          = false
+      + public_network_access_enabled     = true
+      + resource_group_name               = "swarvanu"
+      + source_uri                        = (known after apply)
+      + storage_account_type              = "Standard_LRS"
+      + tags                              = {
+          + "CreatedBy" = "Terraform"
+          + "DiskIndex" = "1"
+          + "Module"    = "ManagedDisk"
+          + "VM"        = "vm-1"
+        }
+      + tier                              = (known after apply)
+    }
+
+  # module.vm_data_disks.azurerm_managed_disk.data_disk[5] will be created
+  + resource "azurerm_managed_disk" "data_disk" {
+      + create_option                     = "Empty"
+      + disk_iops_read_only               = (known after apply)
+      + disk_iops_read_write              = (known after apply)
+      + disk_mbps_read_only               = (known after apply)
+      + disk_mbps_read_write              = (known after apply)
+      + disk_size_gb                      = 128
+      + id                                = (known after apply)
+      + location                          = "eastus"
+      + logical_sector_size               = (known after apply)
+      + max_shares                        = (known after apply)
+      + name                              = "dev-vm-backup-1-disk-2"
+      + network_access_policy             = "AllowAll"
+      + optimized_frequent_attach_enabled = false
+      + performance_plus_enabled          = false
+      + public_network_access_enabled     = true
+      + resource_group_name               = "swarvanu"
+      + source_uri                        = (known after apply)
+      + storage_account_type              = "Premium_LRS"
+      + tags                              = {
+          + "CreatedBy" = "Terraform"
+          + "DiskIndex" = "2"
+          + "Module"    = "ManagedDisk"
+          + "VM"        = "vm-1"
+        }
+      + tier                              = (known after apply)
+    }
+
+  # module.vm_data_disks.azurerm_virtual_machine_data_disk_attachment.disk_attach[0] will be created
+  + resource "azurerm_virtual_machine_data_disk_attachment" "disk_attach" {
+      + caching                   = "ReadWrite"
+      + create_option             = "Attach"
+      + id                        = (known after apply)
+      + lun                       = 0
+      + managed_disk_id           = (known after apply)
+      + virtual_machine_id        = (known after apply)
+      + write_accelerator_enabled = false
+    }
+
+  # module.vm_data_disks.azurerm_virtual_machine_data_disk_attachment.disk_attach[1] will be created
+  + resource "azurerm_virtual_machine_data_disk_attachment" "disk_attach" {
+      + caching                   = "ReadWrite"
+      + create_option             = "Attach"
+      + id                        = (known after apply)
+      + lun                       = 1
+      + managed_disk_id           = (known after apply)
+      + virtual_machine_id        = (known after apply)
+      + write_accelerator_enabled = false
+    }
+
+  # module.vm_data_disks.azurerm_virtual_machine_data_disk_attachment.disk_attach[2] will be created
+  + resource "azurerm_virtual_machine_data_disk_attachment" "disk_attach" {
+      + caching                   = "ReadWrite"
+      + create_option             = "Attach"
+      + id                        = (known after apply)
+      + lun                       = 2
+      + managed_disk_id           = (known after apply)
+      + virtual_machine_id        = (known after apply)
+      + write_accelerator_enabled = false
+    }
+
+  # module.vm_data_disks.azurerm_virtual_machine_data_disk_attachment.disk_attach[3] will be created
+  + resource "azurerm_virtual_machine_data_disk_attachment" "disk_attach" {
+      + caching                   = "ReadWrite"
+      + create_option             = "Attach"
+      + id                        = (known after apply)
+      + lun                       = 0
+      + managed_disk_id           = (known after apply)
+      + virtual_machine_id        = (known after apply)
+      + write_accelerator_enabled = false
+    }
+
+  # module.vm_data_disks.azurerm_virtual_machine_data_disk_attachment.disk_attach[4] will be created
+  + resource "azurerm_virtual_machine_data_disk_attachment" "disk_attach" {
+      + caching                   = "ReadWrite"
+      + create_option             = "Attach"
+      + id                        = (known after apply)
+      + lun                       = 1
+      + managed_disk_id           = (known after apply)
+      + virtual_machine_id        = (known after apply)
+      + write_accelerator_enabled = false
+    }
+
+  # module.vm_data_disks.azurerm_virtual_machine_data_disk_attachment.disk_attach[5] will be created
+  + resource "azurerm_virtual_machine_data_disk_attachment" "disk_attach" {
+      + caching                   = "ReadWrite"
+      + create_option             = "Attach"
+      + id                        = (known after apply)
+      + lun                       = 2
+      + managed_disk_id           = (known after apply)
+      + virtual_machine_id        = (known after apply)
+      + write_accelerator_enabled = false
+    }
+
+  # module.vm_machines.azurerm_linux_virtual_machine.vm[0] will be created
+  + resource "azurerm_linux_virtual_machine" "vm" {
+      + admin_password                                         = (sensitive value)
+      + admin_username                                         = "azureuser"
+      + allow_extension_operations                             = (known after apply)
+      + bypass_platform_safety_checks_on_user_schedule_enabled = false
+      + computer_name                                          = (known after apply)
+      + disable_password_authentication                        = false
+      + disk_controller_type                                   = (known after apply)
+      + extensions_time_budget                                 = "PT1H30M"
+      + id                                                     = (known after apply)
+      + location                                               = "eastus"
+      + max_bid_price                                          = -1
+      + name                                                   = "dev-vm-0"
+      + network_interface_ids                                  = (known after apply)
+      + os_managed_disk_id                                     = (known after apply)
+      + patch_assessment_mode                                  = (known after apply)
+      + patch_mode                                             = (known after apply)
+      + platform_fault_domain                                  = -1
+      + priority                                               = "Regular"
+      + private_ip_address                                     = (known after apply)
+      + private_ip_addresses                                   = (known after apply)
+      + provision_vm_agent                                     = (known after apply)
+      + public_ip_address                                      = (known after apply)
+      + public_ip_addresses                                    = (known after apply)
+      + resource_group_name                                    = "swarvanu"
+      + size                                                   = "Standard_B2s"
+      + virtual_machine_id                                     = (known after apply)
+      + vm_agent_platform_updates_enabled                      = (known after apply)
+
+      + os_disk {
+          + caching                   = "ReadWrite"
+          + disk_size_gb              = (known after apply)
+          + id                        = (known after apply)
+          + name                      = (known after apply)
+          + storage_account_type      = "Standard_LRS"
+          + write_accelerator_enabled = false
+        }
+
+      + source_image_reference {
+          + offer     = "RHEL"
+          + publisher = "RedHat"
+          + sku       = "9-lvm-gen2"
+          + version   = "latest"
+        }
+
+      + termination_notification (known after apply)
+    }
+
+  # module.vm_machines.azurerm_linux_virtual_machine.vm[1] will be created
+  + resource "azurerm_linux_virtual_machine" "vm" {
+      + admin_password                                         = (sensitive value)
+      + admin_username                                         = "azureuser"
+      + allow_extension_operations                             = (known after apply)
+      + bypass_platform_safety_checks_on_user_schedule_enabled = false
+      + computer_name                                          = (known after apply)
+      + disable_password_authentication                        = false
+      + disk_controller_type                                   = (known after apply)
+      + extensions_time_budget                                 = "PT1H30M"
+      + id                                                     = (known after apply)
+      + location                                               = "eastus"
+      + max_bid_price                                          = -1
+      + name                                                   = "dev-vm-1"
+      + network_interface_ids                                  = (known after apply)
+      + os_managed_disk_id                                     = (known after apply)
+      + patch_assessment_mode                                  = (known after apply)
+      + patch_mode                                             = (known after apply)
+      + platform_fault_domain                                  = -1
+      + priority                                               = "Regular"
+      + private_ip_address                                     = (known after apply)
+      + private_ip_addresses                                   = (known after apply)
+      + provision_vm_agent                                     = (known after apply)
+      + public_ip_address                                      = (known after apply)
+      + public_ip_addresses                                    = (known after apply)
+      + resource_group_name                                    = "swarvanu"
+      + size                                                   = "Standard_B2s"
+      + virtual_machine_id                                     = (known after apply)
+      + vm_agent_platform_updates_enabled                      = (known after apply)
+
+      + os_disk {
+          + caching                   = "ReadWrite"
+          + disk_size_gb              = (known after apply)
+          + id                        = (known after apply)
+          + name                      = (known after apply)
+          + storage_account_type      = "Standard_LRS"
+          + write_accelerator_enabled = false
+        }
+
+      + source_image_reference {
+          + offer     = "RHEL"
+          + publisher = "RedHat"
+          + sku       = "9-lvm-gen2"
+          + version   = "latest"
+        }
+
+      + termination_notification (known after apply)
+    }
+
+  # module.vm_machines.azurerm_network_interface.vm_nic[0] will be created
+  + resource "azurerm_network_interface" "vm_nic" {
+      + accelerated_networking_enabled = false
+      + applied_dns_servers            = (known after apply)
+      + id                             = (known after apply)
+      + internal_domain_name_suffix    = (known after apply)
+      + ip_forwarding_enabled          = false
+      + location                       = "eastus"
+      + mac_address                    = (known after apply)
+      + name                           = "dev-vm-nic-0"
+      + private_ip_address             = (known after apply)
+      + private_ip_addresses           = (known after apply)
+      + resource_group_name            = "swarvanu"
+      + virtual_machine_id             = (known after apply)
+
+      + ip_configuration {
+          + gateway_load_balancer_frontend_ip_configuration_id = (known after apply)
+          + name                                               = "internal"
+          + primary                                            = (known after apply)
+          + private_ip_address                                 = (known after apply)
+          + private_ip_address_allocation                      = "Dynamic"
+          + private_ip_address_version                         = "IPv4"
+          + public_ip_address_id                               = (known after apply)
+          + subnet_id                                          = (known after apply)
+        }
+    }
+
+  # module.vm_machines.azurerm_network_interface.vm_nic[1] will be created
+  + resource "azurerm_network_interface" "vm_nic" {
+      + accelerated_networking_enabled = false
+      + applied_dns_servers            = (known after apply)
+      + id                             = (known after apply)
+      + internal_domain_name_suffix    = (known after apply)
+      + ip_forwarding_enabled          = false
+      + location                       = "eastus"
+      + mac_address                    = (known after apply)
+      + name                           = "dev-vm-nic-1"
+      + private_ip_address             = (known after apply)
+      + private_ip_addresses           = (known after apply)
+      + resource_group_name            = "swarvanu"
+      + virtual_machine_id             = (known after apply)
+
+      + ip_configuration {
+          + gateway_load_balancer_frontend_ip_configuration_id = (known after apply)
+          + name                                               = "internal"
+          + primary                                            = (known after apply)
+          + private_ip_address                                 = (known after apply)
+          + private_ip_address_allocation                      = "Dynamic"
+          + private_ip_address_version                         = "IPv4"
+          + public_ip_address_id                               = (known after apply)
+          + subnet_id                                          = (known after apply)
+        }
+    }
+
+  # module.vm_machines.azurerm_network_security_group.vm_nsg will be created
+  + resource "azurerm_network_security_group" "vm_nsg" {
+      + id                  = (known after apply)
+      + location            = "eastus"
+      + name                = "dev-vm-nsg"
+      + resource_group_name = "swarvanu"
+      + security_rule       = [
+          + {
+              + access                                     = "Allow"
+              + destination_address_prefix                 = "*"
+              + destination_address_prefixes               = []
+              + destination_application_security_group_ids = []
+              + destination_port_range                     = "22"
+              + destination_port_ranges                    = []
+              + direction                                  = "Inbound"
+              + name                                       = "AllowSSH"
+              + priority                                   = 100
+              + protocol                                   = "Tcp"
+              + source_address_prefix                      = "*"
+              + source_address_prefixes                    = []
+              + source_application_security_group_ids      = []
+              + source_port_range                          = "*"
+              + source_port_ranges                         = []
+                # (1 unchanged attribute hidden)
+            },
+        ]
+    }
+
+  # module.vm_machines.azurerm_public_ip.vm_pip[0] will be created
+  + resource "azurerm_public_ip" "vm_pip" {
+      + allocation_method       = "Static"
+      + ddos_protection_mode    = "VirtualNetworkInherited"
+      + fqdn                    = (known after apply)
+      + id                      = (known after apply)
+      + idle_timeout_in_minutes = 4
+      + ip_address              = (known after apply)
+      + ip_version              = "IPv4"
+      + location                = "eastus"
+      + name                    = "dev-vm-pip-0"
+      + resource_group_name     = "swarvanu"
+      + sku                     = "Standard"
+      + sku_tier                = "Regional"
+    }
+
+  # module.vm_machines.azurerm_public_ip.vm_pip[1] will be created
+  + resource "azurerm_public_ip" "vm_pip" {
+      + allocation_method       = "Static"
+      + ddos_protection_mode    = "VirtualNetworkInherited"
+      + fqdn                    = (known after apply)
+      + id                      = (known after apply)
+      + idle_timeout_in_minutes = 4
+      + ip_address              = (known after apply)
+      + ip_version              = "IPv4"
+      + location                = "eastus"
+      + name                    = "dev-vm-pip-1"
+      + resource_group_name     = "swarvanu"
+      + sku                     = "Standard"
+      + sku_tier                = "Regional"
+    }
+
+  # module.vm_machines.azurerm_subnet.vm_subnet will be created
+  + resource "azurerm_subnet" "vm_subnet" {
+      + address_prefixes                              = [
+          + "10.1.0.0/24",
+        ]
+      + default_outbound_access_enabled               = true
+      + id                                            = (known after apply)
+      + name                                          = "default"
+      + private_endpoint_network_policies             = "Disabled"
+      + private_link_service_network_policies_enabled = true
+      + resource_group_name                           = "swarvanu"
+      + virtual_network_name                          = "dev-vnet"
+    }
+
+  # module.vm_machines.azurerm_subnet_network_security_group_association.vm_nsg_assoc will be created
+  + resource "azurerm_subnet_network_security_group_association" "vm_nsg_assoc" {
+      + id                        = (known after apply)
+      + network_security_group_id = (known after apply)
+      + subnet_id                 = (known after apply)
+    }
+
+  # module.vm_machines.azurerm_virtual_network.vm_vnet will be created
+  + resource "azurerm_virtual_network" "vm_vnet" {
+      + address_space                  = [
+          + "10.1.0.0/16",
+        ]
+      + dns_servers                    = (known after apply)
+      + guid                           = (known after apply)
+      + id                             = (known after apply)
+      + location                       = "eastus"
+      + name                           = "dev-vnet"
+      + private_endpoint_vnet_policies = "Disabled"
+      + resource_group_name            = "swarvanu"
+      + subnet                         = (known after apply)
+    }
+
+  # module.vm_machines.random_password.vm_password will be created
+  + resource "random_password" "vm_password" {
+      + bcrypt_hash      = (sensitive value)
+      + id               = (known after apply)
+      + length           = 16
+terraform : 
+At line:1 char:1
++ terraform plan 
+-no-color 2>&1 | 
+Out-File -FilePath 
+C:\Users\Samra\azu 
+...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (:String   
+ ) [], RemoteExce    
+ption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+Error: Invalid count 
+argument
+
+  on ..\dev-env-modul
+es\vm_scaleset\main.t
+f line 13, in 
+resource "azurerm_vir
+tual_network" 
+"vmss_vnet":
+  13:   count = local
+.create_networking ? 
+1 : 0
+
+The "count" value 
+depends on resource 
+attributes that 
+cannot be determined
+until apply, so 
+Terraform cannot 
+predict how many 
+instances will be 
+created.
+To work around this, 
+use the -target 
+argument to first 
+apply only the
+resources that the 
+count depends on.
+
+Error: Invalid count 
+argument
+
+  on ..\dev-env-modul
+es\vm_scaleset\main.t
+f line 33, in 
+resource "azurerm_net
+work_security_group" 
+"vmss_nsg":
+  33:   count = local
+.create_networking ? 
+1 : 0
+
+The "count" value 
+depends on resource 
+attributes that 
+cannot be determined
+until apply, so 
+Terraform cannot 
+predict how many 
+instances will be 
+created.
+To work around this, 
+use the -target 
+argument to first 
+apply only the
+resources that the 
+count depends on.
+      + lower            = true
+      + min_lower        = 0
+      + min_numeric      = 0
+      + min_special      = 0
+      + min_upper        = 0
+      + number           = true
+      + numeric          = true
+      + override_special = "!#$%&*()-_=+[]{}<>:?"
+      + result           = (sensitive value)
+      + special          = true
+      + upper            = true
+    }
+
+  # module.vm_scaleset.random_password.vmss_password[0] will be created
+  + resource "random_password" "vmss_password" {
+      + bcrypt_hash      = (sensitive value)
+      + id               = (known after apply)
+      + length           = 16
+      + lower            = true
+      + min_lower        = 0
+      + min_numeric      = 0
+      + min_special      = 0
+      + min_upper        = 0
+      + number           = true
+      + numeric          = true
+      + override_special = "!#$%&*()-_=+[]{}<>:?"
+      + result           = (sensitive value)
+      + special          = true
+      + upper            = true
+    }
+
+Plan: 35 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + data_collection_rule_id      = (known after apply)
+  + data_collection_rule_name    = "swarvanu-dcr"
+  + data_disk_ids                = (known after apply)
+  + data_disk_names              = [
+      + "dev-vm-data-0-disk-0",
+      + "dev-vm-logs-0-disk-1",
+      + "dev-vm-backup-0-disk-2",
+      + "dev-vm-data-1-disk-0",
+      + "dev-vm-logs-1-disk-1",
+      + "dev-vm-backup-1-disk-2",
+    ]
+  + keyvault_id                  = (known after apply)
+  + keyvault_uri                 = (known after apply)
+  + log_analytics_workspace_id   = (known after apply)
+  + log_analytics_workspace_name = "swarvanu-log-analytics"
+  + vm_ids                       = [
+      + (known after apply),
+      + (known after apply),
+    ]
+  + vm_password                  = (sensitive value)
+  + vm_private_ips               = [
+      + (known after apply),
+      + (known after apply),
+    ]
+  + vm_public_ips                = [
+      + (known after apply),
+      + (known after apply),
+    ]
+  + vmss_password                = (sensitive value)
+Releasing state lock. This may take a few moments...

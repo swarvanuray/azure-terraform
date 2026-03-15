@@ -8,7 +8,7 @@ variable "rg_name" { type = string }
 variable "location" { type = string }
 variable "storage_name" {
   type        = string
-  default     = "swarvanu"  # <--- Added default value
+  default     = "swarvanu" # <--- Added default value
   description = "Base name for the storage account"
 }
 
