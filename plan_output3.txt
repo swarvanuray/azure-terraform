@@ -1,0 +1,40 @@
+﻿Acquiring state lock. This may take a few moments...
+Releasing state lock. This may take a few moments...
+terraform : 
+At line:1 char:1
++ terraform plan 
+-no-color 2>&1 | 
+Out-File -FilePath 
+C:\Users\Samra\azu 
+...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (:String   
+ ) [], RemoteExce    
+ption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+Error: Reference to 
+undeclared local 
+value
+
+  on ..\dev-env-modul
+es\vm_scaleset\main.t
+f line 54, in 
+resource "azurerm_sub
+net_network_security_
+group_association" 
+"vmss_nsg_assoc":
+  54:   count = local
+.create_networking ? 
+1 : 0
+
+A local value with 
+the name 
+"create_networking" 
+has not been 
+declared.

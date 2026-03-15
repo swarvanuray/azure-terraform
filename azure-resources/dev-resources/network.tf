@@ -24,5 +24,9 @@ module "my_network" {
       address_prefixes = ["10.0.2.0/24"] 
       delegation       = null 
     }
+    "appgw-subnet" = {
+      address_prefixes = ["10.0.3.0/24"]
+      delegation       = null
+    }
   }
 }
