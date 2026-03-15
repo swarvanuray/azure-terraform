@@ -11,6 +11,17 @@ resource "azurerm_key_vault" "this" {
   tenant_id           = data.azurerm_client_config.current.tenant_id
   sku_name            = var.sku_name
 
+  # Bootstrap deployer permissions during vault creation so provider
+  # data-plane reads (like certificate contacts) can succeed immediately.
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
+
+    key_permissions         = var.deployer_key_permissions
+    secret_permissions      = var.deployer_secret_permissions
+    certificate_permissions = var.deployer_certificate_permissions
+  }
+
   # Soft delete & purge protection
   soft_delete_retention_days = var.soft_delete_retention_days
   purge_protection_enabled   = var.purge_protection_enabled
@@ -27,19 +38,7 @@ resource "azurerm_key_vault" "this" {
   }
 }
 
-# 2. Access Policy for the deployer (Terraform service principal / current user)
-resource "azurerm_key_vault_access_policy" "deployer" {
-  count = var.create_resource ? 1 : 0
-
-  key_vault_id = azurerm_key_vault.this[0].id
-  tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = data.azurerm_client_config.current.object_id
-
-  key_permissions    = var.deployer_key_permissions
-  secret_permissions = var.deployer_secret_permissions
-}
-
-# 3. Additional Access Policies (for other users, groups, or service principals)
+# 2. Additional Access Policies (for other users, groups, or service principals)
 resource "azurerm_key_vault_access_policy" "additional" {
   for_each = var.create_resource ? var.additional_access_policies : {}
 

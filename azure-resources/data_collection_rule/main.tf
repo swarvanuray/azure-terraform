@@ -79,11 +79,11 @@ resource "azurerm_monitor_data_collection_rule" "this" {
   dynamic "data_flow" {
     for_each = var.data_flows
     content {
-      streams             = data_flow.value.streams
-      destinations        = data_flow.value.destinations
-      built_in_transform  = lookup(data_flow.value, "built_in_transform", null)
-      output_stream       = lookup(data_flow.value, "output_stream", null)
-      transform_kql       = lookup(data_flow.value, "transform_kql", null)
+      streams            = data_flow.value.streams
+      destinations       = data_flow.value.destinations
+      built_in_transform = lookup(data_flow.value, "built_in_transform", null)
+      output_stream      = lookup(data_flow.value, "output_stream", null)
+      transform_kql      = lookup(data_flow.value, "transform_kql", null)
     }
   }
 

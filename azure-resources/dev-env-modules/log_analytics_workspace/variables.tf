@@ -103,7 +103,7 @@ variable "identity_ids" {
 
 # --- Tags ---
 variable "tags" {
-  type        = map(string)
+  type = map(string)
   default = {
     CreatedBy = "Terraform"
     Module    = "LogAnalyticsWorkspace"

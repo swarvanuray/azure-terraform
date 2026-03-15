@@ -64,6 +64,12 @@ variable "deployer_secret_permissions" {
   description = "Secret permissions for the deploying service principal"
 }
 
+variable "deployer_certificate_permissions" {
+  type        = list(string)
+  default     = ["ManageContacts"]
+  description = "Certificate permissions for the deploying service principal"
+}
+
 # --- Additional Access Policies ---
 variable "additional_access_policies" {
   type = map(object({

@@ -9,18 +9,18 @@ resource "azurerm_storage_account" "this" {
   access_tier              = var.access_tier
   min_tls_version          = var.min_tls
 
-  
+
 
   # Feature: Data Protection (Versioning & Soft Delete)
   blob_properties {
     versioning_enabled = var.enable_versioning
-    
+
     delete_retention_policy {
       days = 7 # Keep deleted files for 7 days (Soft Delete)
     }
   }
 
-  
+
 
   tags = {
     CreatedBy = "Terraform"

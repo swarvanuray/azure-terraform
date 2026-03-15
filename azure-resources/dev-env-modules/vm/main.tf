@@ -78,12 +78,12 @@ resource "random_password" "vm_password" {
 resource "azurerm_linux_virtual_machine" "vm" {
   count = var.vm_count
 
-  name                = "${var.vm_name_prefix}-${count.index}"
-  resource_group_name = var.rg_name
-  location            = var.location
-  size                = var.vm_size
-  admin_username      = "azureuser"
-  admin_password      = random_password.vm_password.result
+  name                            = "${var.vm_name_prefix}-${count.index}"
+  resource_group_name             = var.rg_name
+  location                        = var.location
+  size                            = var.vm_size
+  admin_username                  = "azureuser"
+  admin_password                  = random_password.vm_password.result
   disable_password_authentication = false
 
   network_interface_ids = [

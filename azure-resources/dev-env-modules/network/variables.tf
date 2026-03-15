@@ -1,8 +1,8 @@
 variable "subnets" {
   description = "Map of subnets to create with optional delegation"
-  type        = map(object({
+  type = map(object({
     address_prefixes = list(string)
-    delegation       = optional(object({
+    delegation = optional(object({
       name = string
       service_delegation = object({
         name    = string
@@ -12,7 +12,7 @@ variable "subnets" {
   }))
   # Default example
   default = {
-    "web-subnet" = { 
+    "web-subnet" = {
       address_prefixes = ["10.0.1.0/24"]
       delegation = {
         name = "webappdelegation"
@@ -22,7 +22,7 @@ variable "subnets" {
         }
       }
     }
-    "db-subnet"  = { 
+    "db-subnet" = {
       address_prefixes = ["10.0.2.0/24"]
       delegation       = null
     }
