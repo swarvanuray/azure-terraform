@@ -1,0 +1,101 @@
+name: 'VM Deploy'
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Terraform action to perform'
+        required: true
+        default: 'apply'
+        type: choice
+        options:
+          - apply
+          - destroy
+  pull_request:
+    paths:
+      - 'azure-resources/dev-resources/vm.tf'
+      - 'azure-resources/dev-env-modules/vm/**'
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  terraform-vm:
+    name: 'VM Deploy'
+    runs-on: ubuntu-latest
+
+    env:
+      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      ARM_USE_OIDC: true
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: azure-resources/dev-resources
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log in to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      # --- Plan (runs on PR and manual apply) ---
+      - name: Terraform Plan (Apply)
+        if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.action == 'apply')
+        run: |
+          terraform plan \
+            -target=module.vm_machines \
+            -input=false \
+            -out=vm.tfplan
+
+      - name: Terraform Plan (Destroy)
+        if: github.event_name == 'workflow_dispatch' && inputs.action == 'destroy'
+        run: |
+          terraform plan \
+            -target=module.vm_machines \
+            -destroy \
+            -input=false \
+            -out=vm.tfplan
+
+      # --- Post plan summary to PR ---
+      - name: Post Plan to PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const output = `### VM Terraform Plan
+            > Plan generated for \`module.vm_machines\`
+            > Merge this PR to trigger a manual deployment via **Actions → VM Deploy → Run workflow**.`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            });
+
+      # --- Apply / Destroy (manual trigger only) ---
+      - name: Terraform Apply
+        if: github.event_name == 'workflow_dispatch' && inputs.action == 'apply'
+        run: terraform apply -input=false -auto-approve vm.tfplan
+
+      - name: Terraform Destroy
+        if: github.event_name == 'workflow_dispatch' && inputs.action == 'destroy'
+        run: terraform apply -input=false -auto-approve vm.tfplan
